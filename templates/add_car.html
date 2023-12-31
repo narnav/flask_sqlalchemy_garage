@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="alert alert-info" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
+{% endwith %}
+
+<!-- Rest of your content -->
+<h1>Add Car</h1>
+<!-- Add car form -->
+
+    <form method="POST" action="/add">
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" class="form-control" id="model" name="model" required>
+        </div>
+        <div class="form-group">
+            <label for="brand">Brand:</label>
+            <input type="text" class="form-control" id="brand" name="brand" required>
+        </div>
+        <div class="form-group">
+            <label for="color">Color:</label>
+            <input type="text" class="form-control" id="color" name="color" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Car</button>
+    </form>
+{% endblock %}
